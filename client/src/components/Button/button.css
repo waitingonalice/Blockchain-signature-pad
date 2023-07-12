@@ -1,0 +1,22 @@
+.primary {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: white;
+  background-color: black;
+  border: none;
+  width: 100%;
+  border-radius: 20px;
+  padding: 1.3rem 2rem;
+}
+
+.secondary {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: black;
+  background-color: white;
+  border: none;
+  width: 100%;
+  border-radius: 20px;
+  padding: 1.3rem 2rem;
+}
+
