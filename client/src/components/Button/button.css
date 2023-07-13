@@ -1,22 +1,40 @@
 .primary {
-  font-weight: 600;
-  font-size: 1.4rem;
+  font-weight: 700;
+  font-size: 1.5rem;
   color: white;
-  background-color: black;
+  background-color: #333;
   border: none;
   width: 100%;
   border-radius: 20px;
   padding: 1.3rem 2rem;
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:enabled:active {
+    background-color: black;
+  }
 }
 
 .secondary {
-  font-weight: 500;
-  font-size: 1.4rem;
-  color: black;
-  background-color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #333;
   border: none;
-  width: 100%;
-  border-radius: 20px;
-  padding: 1.3rem 2rem;
-}
+  background-color: transparent;
 
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  &:enabled:active {
+    color: black;
+  }
+}

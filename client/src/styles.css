@@ -151,3 +151,16 @@ hr {
   display: inline-block;
   margin: 2rem 1rem 0 0;
 }
+
+.signatureContainer {
+  width: 100%;
+  display: flex;
+  column-gap: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .signatureContainer {
+    flex-direction: column;
+    row-gap: 5rem;
+  }
+}

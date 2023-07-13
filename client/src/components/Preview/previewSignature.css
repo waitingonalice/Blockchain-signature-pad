@@ -1,0 +1,42 @@
+#previewSignature {
+  --previewWidth: 300px;
+  --previewHeight: 150px;
+  --border: 1px solid #ddd9d9;
+  --opacity: 0.5;
+}
+
+#previewSignature .emptyCanvasContainer {
+  height: var(--previewHeight);
+  width: var(--previewWidth);
+  border: var(--border);
+  background-color: #ddd9d9;
+  opacity: var(--opacity);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+#previewSignature .previewCanvas {
+  height: var(--previewHeight);
+  width: var(--previewWidth);
+  border: var(--border);
+  margin: 1.5rem 0;
+}
+
+.emptyText {
+  font-weight: 600;
+  opacity: var(--opacity);
+}
+
+.signatureInfoContainer {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  #previewSignature {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}

@@ -1,0 +1,4 @@
+.labelValueContainer {
+  display: flex;
+  flex-direction: column;
+}

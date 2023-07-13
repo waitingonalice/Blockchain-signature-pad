@@ -1,0 +1,13 @@
+.canvasContainer {
+  height: 300px;
+  width: 600px;
+  box-shadow: 5px 10px 15px 2px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  margin-bottom: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}

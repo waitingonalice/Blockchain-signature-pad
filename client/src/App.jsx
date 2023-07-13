@@ -1,12 +1,11 @@
 import { EthProvider } from "./contexts/EthContext";
 import Demo from "./components/Demo";
-import { SignaturePad } from "./components/SignaturePad";
-import { useRef } from "react";
-import { Button } from "./components/Button";
+import { SignaturePad } from "./components/Signature-pad";
+import { PreviewSignature } from "./components/Preview";
+import { useState } from "react";
 
 function App() {
-  const strokesRef = useRef([]);
-
+  const [signature, setSignature] = useState(null);
   return (
     <EthProvider>
       <div id="App">
@@ -14,8 +13,11 @@ function App() {
           <hr />
           <Demo />
           <hr />
-          <SignaturePad strokes={strokesRef} />
-          <Button type="submit">Submit</Button>
+          <div className="signatureContainer">
+            <SignaturePad setSignature={setSignature} />
+            <PreviewSignature data={signature} />
+          </div>
+          <hr />
         </div>
       </div>
     </EthProvider>
