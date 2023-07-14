@@ -15,6 +15,8 @@ const EmptyCanvas = () => (
 export const PreviewSignature = ({ data }) => {
   const canvasRef = useRef(null);
 
+  console.log(data);
+
   useEffect(() => {
     if (!data) return;
     const canvasContext = initializeCanvas({
@@ -22,7 +24,8 @@ export const PreviewSignature = ({ data }) => {
       height: 300,
       ref: canvasRef,
     });
-    const strokes = JSON.parse(data);
+    const strokes = JSON.parse(data.strokes);
+
     strokes.forEach((stroke) => {
       if (stroke.moveToX && stroke.moveToY) {
         canvasContext.moveTo(stroke.moveToX, stroke.moveToY);
@@ -40,10 +43,22 @@ export const PreviewSignature = ({ data }) => {
       ) : (
         <canvas className="previewCanvas" ref={canvasRef} />
       )}
-
-      <LabelValue label="Contract Address" value="123" />
-      <LabelValue label="Stored Hash" value="123" />
-      <LabelValue label="Transaction Hash" value="123" />
+      {
+        <>
+          <LabelValue
+            label="Contract Address"
+            value={(data && data.contractAddress) ?? "Unavailable"}
+          />
+          <LabelValue
+            label="Stored Hash"
+            value={(data && data.storedHash) ?? "Unavailable"}
+          />
+          <LabelValue
+            label="Transaction Hash"
+            value={(data && data.transactionHash) ?? "Unavailable"}
+          />
+        </>
+      }
     </div>
   );
 };

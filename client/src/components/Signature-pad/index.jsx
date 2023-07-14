@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Text } from "../Text";
 import { Button } from "../Button";
 import { initializeCanvas } from "../../utils/formatting";
+import { useEth } from "../../contexts/EthContext";
 
 export const SignaturePad = ({ setSignature }) => {
   const strokesRef = useRef([]);
@@ -10,6 +11,9 @@ export const SignaturePad = ({ setSignature }) => {
   const canvasContextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
+  const {
+    state: { contract, accounts, address },
+  } = useEth();
 
   const reset = () => {
     strokesRef.current = [];
@@ -63,15 +67,40 @@ export const SignaturePad = ({ setSignature }) => {
     ];
   };
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = async () => {
     const serializeStrokes = JSON.stringify(strokesRef.current);
-    // TODO: Sent to blockchain using web3js and smart contract
-    setSignature(serializeStrokes);
-    reset();
+    if (!serializeStrokes) return;
+    try {
+      const transactionData = {};
+
+      setIsDisabled(true);
+
+      await contract.methods
+        .set(serializeStrokes)
+        .send({ from: accounts[0] })
+        .on("receipt", (receipt) => {
+          transactionData.storedHash = receipt.blockHash;
+          transactionData.transactionHash = receipt.transactionHash;
+        });
+
+      const signature = await contract.methods
+        .get()
+        .call({ from: accounts[0] });
+
+      setSignature({
+        ...transactionData,
+        strokes: signature,
+        contractAddress: address,
+      });
+      reset();
+    } catch (err) {
+      console.error(err);
+      setIsDisabled(false);
+    }
   };
 
   return (
-    <div>
+    <div className="padContainer">
       <div className="header">
         <Text type="subhead">Signature</Text>
         <Button onClick={handleOnClear} type="clear">

@@ -8,16 +8,10 @@ function App() {
   const [signature, setSignature] = useState(null);
   return (
     <EthProvider>
-      <div id="App">
-        <div className="container">
-          <hr />
-          <Demo />
-          <hr />
-          <div className="signatureContainer">
-            <SignaturePad setSignature={setSignature} />
-            <PreviewSignature data={signature} />
-          </div>
-          <hr />
+      <div className="container">
+        <div className="content">
+          <SignaturePad setSignature={setSignature} />
+          <PreviewSignature data={signature} />
         </div>
       </div>
     </EthProvider>

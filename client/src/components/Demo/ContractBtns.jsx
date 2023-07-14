@@ -28,8 +28,8 @@ function ContractBtns({ setValue }) {
     }
     const newValue = parseInt(inputValue);
     await contract.methods.write(newValue).send({ from: accounts[0] });
-    const value = await contract.methods.read().call({ from: accounts[0] });
-    setValue(value);
+    // const value = await contract.methods.read().call({ from: accounts[0] });
+    // setValue(value);
   };
 
   return (
