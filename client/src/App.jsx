@@ -1,5 +1,4 @@
 import { EthProvider } from "./contexts/EthContext";
-import Demo from "./components/Demo";
 import { SignaturePad } from "./components/Signature-pad";
 import { PreviewSignature } from "./components/Preview";
 import { useState } from "react";
