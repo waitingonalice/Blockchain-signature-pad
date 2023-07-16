@@ -22,3 +22,7 @@ The Truffle framework is currently configured to port number `8545` in `truffle-
 3. Please run `ganache` in the CLI to start the local blockchain on that port number.
 
 4. Once the local blockchain has started, be sure to run `truffle migrate --network development` to deploy the smart contracts under `contracts` folder. The `development` network will point to Ganache.
+
+## Demo Video of the application
+https://github.com/waitingonalice/Blockchain-signature-pad/assets/85215147/c7d03028-2e1c-4e2b-b1d4-c3ff6fbfc367
+
