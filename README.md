@@ -17,6 +17,8 @@ $ cd client
 $ npm start
 ```
 
-The Truffle framework is currently configured to port number `8545` in `truffle-config.js`. 3. Please run `ganache` in the CLI to start the local blockchain on that port number.
+The Truffle framework is currently configured to port number `8545` in `truffle-config.js`.
+
+3. Please run `ganache` in the CLI to start the local blockchain on that port number.
 
 4. Once the local blockchain has started, be sure to run `truffle migrate --network development` to deploy the smart contracts under `contracts` folder. The `development` network will point to Ganache.
