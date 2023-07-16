@@ -7,6 +7,7 @@ This box comes with everything you need to start using Truffle to write, compile
 1. You will need to have the Truffle CLI installed. To do so run `npm install -g truffle`.
 2. You will need to have the Metamask extension installed in your browser.
 3. Create a local network that Metamask can connect to under the networks tab. (This step comes after setting up and running Ganache)
+4. Have enough funds in your Metamask account to perform transactions. 
 
 
 ## Steps to run the project
