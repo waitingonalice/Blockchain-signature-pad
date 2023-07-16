@@ -32,11 +32,3 @@
 .signatureInfoContainer {
   margin-top: 1rem;
 }
-
-@media screen and (max-width: 768px) {
-  #previewSignature {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-}

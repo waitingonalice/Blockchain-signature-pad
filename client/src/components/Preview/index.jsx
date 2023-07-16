@@ -15,8 +15,6 @@ const EmptyCanvas = () => (
 export const PreviewSignature = ({ data }) => {
   const canvasRef = useRef(null);
 
-  console.log(data);
-
   useEffect(() => {
     if (!data) return;
     const canvasContext = initializeCanvas({
@@ -43,22 +41,19 @@ export const PreviewSignature = ({ data }) => {
       ) : (
         <canvas className="previewCanvas" ref={canvasRef} />
       )}
-      {
-        <>
-          <LabelValue
-            label="Contract Address"
-            value={(data && data.contractAddress) ?? "Unavailable"}
-          />
-          <LabelValue
-            label="Stored Hash"
-            value={(data && data.storedHash) ?? "Unavailable"}
-          />
-          <LabelValue
-            label="Transaction Hash"
-            value={(data && data.transactionHash) ?? "Unavailable"}
-          />
-        </>
-      }
+
+      <LabelValue
+        label="Contract Address"
+        value={(data && data.contractAddress) ?? "Unavailable"}
+      />
+      <LabelValue
+        label="Stored Hash"
+        value={(data && data.storedHash) ?? "Unavailable"}
+      />
+      <LabelValue
+        label="Transaction Hash"
+        value={(data && data.transactionHash) ?? "Unavailable"}
+      />
     </div>
   );
 };
