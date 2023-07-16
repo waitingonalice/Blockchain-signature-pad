@@ -7,20 +7,21 @@
   width: 100%;
   border-radius: 20px;
   padding: 1.3rem 2rem;
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-    cursor: pointer;
-  }
+}
 
-  &:disabled {
-    background-color: gray;
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
+.primary:hover:not(:disabled) {
+  opacity: 0.9;
+  cursor: pointer;
+}
 
-  &:enabled:active {
-    background-color: black;
-  }
+.primary:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.primary:enabled:active {
+  background-color: black;
 }
 
 .secondary {
@@ -29,12 +30,13 @@
   color: #333;
   border: none;
   background-color: transparent;
+}
 
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-    cursor: pointer;
-  }
-  &:enabled:active {
-    color: black;
-  }
+.secondary:hover:not(:disabled) {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.secondary:enabled:active {
+  color: black;
 }
